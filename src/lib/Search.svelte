@@ -26,7 +26,7 @@
           placeholder="NIK KTP Pensiunan..."
           required
         />
-        <small>{16 - count}</small>
+        <small class="count">{16 - count}</small>
       </div>
       <button type="submit" disabled={count != 16}>Cari</button>
     </form>
@@ -41,8 +41,11 @@
 
 <style>
   main {
+    width: min(600px, 100%);
+    margin: 0 auto;
     padding: 2rem;
   }
+
   form {
     display: flex;
     flex-direction: column;
@@ -56,6 +59,10 @@
     gap: 1rem;
     align-items: center;
     padding: 1rem;
+  }
+
+  form .control .count {
+    opacity: 0.6;
   }
 
   form button {
