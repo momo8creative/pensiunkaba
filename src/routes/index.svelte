@@ -44,3 +44,5 @@
 <Header>Cari Data Peserta Pensiunan</Header>
 
 <Search />
+
+<a href="/lapor">Lapor!</a>

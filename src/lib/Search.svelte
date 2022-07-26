@@ -1,4 +1,5 @@
 <script>
+  // import Icon from "@iconify/svelte";
   import { goto } from "$app/navigation";
   import Card from "$lib/components/Card.svelte";
   import Loading from "$lib/components/Loading.svelte";
@@ -8,6 +9,8 @@
   $: count = nik ? nik.toString().length : 0;
 
   const handleSubmit = (e) => {
+    // console.log(e.target.nik);
+    e.target.nik.blur();
     loading = true;
     goto(`/nik/${nik}`);
   };
@@ -26,9 +29,15 @@
           placeholder="NIK KTP Pensiunan..."
           required
         />
-        <small class="count">{16 - count}</small>
+        <small class="count">
+          {#if count == 16}
+            <!-- <Icon icon="mdi:check-circle-outline" /> -->o
+          {:else}
+            {16 - count}
+          {/if}
+        </small>
       </div>
-      <button type="submit" disabled={count != 16}>Cari</button>
+      <button type="submit" disabled={count != 16 || loading}>Cari</button>
     </form>
   </Card>
 </main>

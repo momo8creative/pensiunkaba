@@ -1,11 +1,14 @@
 <script>
-  import { fly, fade } from "svelte/transition";
+  import { page } from "$app/stores";
   import "$lib/styles/global.css";
+  import Transition from "../lib/components/Transition.svelte";
 </script>
 
-<main in:fly={{ y: 20, duration: 300 }} out:fade>
-  <slot />
-</main>
+<Transition url={$page.url}>
+  <main>
+    <slot />
+  </main>
+</Transition>
 
 <style>
   main {
