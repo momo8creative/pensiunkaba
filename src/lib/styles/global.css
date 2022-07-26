@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-12: 1.2rem;
+  --font-18: 1.8rem;
+  --font-24: 2.4rem;
+  --font-30: 3rem;
+  --font-36: 3.6rem;
+  --font-42: 4.2rem;
+
+  --color-bg-base: hsl(216, 5%, 92%);
+  --color-bg-white: white;
+  --color-bg-primary: #0091ff;
+  --color-bg-secondary: #fe80b2;
+  --color-bg-success: #80cf00;
+  --color-bg-info: #06b5dd;
+  --color-bg-warning: #ffc717;
+  --color-bg-danger: #fd517d;
+  --color-bg-light: #f8f5fd;
+  --color-bg-dark: #2c323f;
+
+  --color-text-black: black;
+  --color-text-white: white;
+  --color-text-base: hsl(0, 0%, 5%);
+  --color-text-primary: #0091ff;
+  --color-text-secondary: #fe80b2;
+  --color-text-success: #80cf00;
+  --color-text-info: #06b5dd;
+  --color-text-warning: #ffc717;
+  --color-text-danger: #fd517d;
+  --color-text-light: #f8f5fd;
+  --color-text-dark: #2c323f;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: var(--font-24);
+  font-family: sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-base);
+}
+
+input {
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+}
+
+button {
+  font-size: inherit;
+}
