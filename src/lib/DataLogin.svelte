@@ -1,26 +1,36 @@
 <script>
+  import { fade } from "svelte/transition";
   import Card from "$lib/components/Card.svelte";
 
   export let data;
-  let terCopy = false;
+  let terCopy = {
+    nomor_peserta: false,
+    pin: false,
+  };
 
   const fields = [
     { label: "Nomor Peserta", name: "nomor_peserta" },
     { label: "PIN", name: "pin" },
   ];
 
-  const handleCopy = (value) => {
+  const handleCopy = (name, value) => {
     navigator.clipboard.writeText(value);
-    terCopy = true;
+    terCopy[name] = true;
     setTimeout(() => {
-      terCopy = false;
+      terCopy[name] = false;
     }, 2000);
   };
 </script>
 
-<div class="alert-copy" class:show={terCopy}>
-  <h4>Ter-copy</h4>
-</div>
+{#key terCopy}
+  <div
+    transition:fade
+    class="alert-copy"
+    class:show={terCopy.nomor_peserta || terCopy.pin}
+  >
+    <h4>Ter-copy</h4>
+  </div>
+{/key}
 
 <Card>
   <svelte:fragment slot="header">Data Login Aplikasi Dapenbun</svelte:fragment>
@@ -32,9 +42,15 @@
         <input type="text" value={data[name]} readonly />
         <button
           on:click|self={() => {
-            handleCopy(data[name]);
-          }}>Copy</button
+            handleCopy(name, data[name]);
+          }}
         >
+          {#if terCopy[name]}
+            ...
+          {:else}
+            Copy
+          {/if}
+        </button>
       </div>
     </article>
   {/each}

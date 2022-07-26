@@ -19,6 +19,7 @@
 <style>
   .card {
     background-color: var(--color-bg-white);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
   }
 
   .card .card-header {

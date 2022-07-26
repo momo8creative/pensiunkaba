@@ -56,5 +56,20 @@ input {
 }
 
 button {
+  cursor: pointer;
   font-size: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+  filter: grayscale(80%);
+  cursor: not-allowed;
+}
+
+a {
+  display: block;
 }
